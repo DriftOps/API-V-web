@@ -9,14 +9,15 @@ body {
 .dashboard-container {
   display: flex;
   height: 100vh;
+  flex-direction: row;
 }
 
-/* Sidebar */
 .sidebar {
   background-color: #1e293b;
   color: white;
   padding: 20px;
   width: 220px;
+  flex-shrink: 0;
 }
 
 .sidebar h2 {
@@ -40,20 +41,26 @@ body {
   color: #fff;
 }
 
-/* Main content */
 .main-content {
   flex: 1;
   padding: 30px;
+  overflow-x: auto;
 }
 
 .resumo-topo {
   display: flex;
   gap: 30px;
   margin-bottom: 30px;
+  flex-wrap: wrap;
   background-color: #fff;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.card {
+  flex: 1 1 200px;
+  min-width: 150px;
 }
 
 .tabela-reembolsos h2 {
@@ -74,6 +81,7 @@ body {
   padding: 12px 16px;
   text-align: left;
   border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
 }
 
 .tabela-reembolsos th {
@@ -88,6 +96,7 @@ button {
   cursor: pointer;
   color: white;
   font-weight: 500;
+  margin-bottom: 5px;
 }
 
 button:disabled {
@@ -95,7 +104,6 @@ button:disabled {
   cursor: not-allowed;
 }
 
-/* Cores dos status */
 .aprovado {
   color: green;
   font-weight: bold;
@@ -117,4 +125,43 @@ button:nth-child(1):not(:disabled) {
 
 button:nth-child(2):not(:disabled) {
   background-color: #ef4444;
+}
+
+/* Responsivo para Android (telas < 768px) */
+@media (max-width: 768px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+
+  .sidebar ul {
+    display: flex;
+    gap: 20px;
+  }
+
+  .sidebar li {
+    margin: 0;
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .tabela-reembolsos table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
 }

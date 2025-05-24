@@ -44,7 +44,7 @@ function App() {
         item.id === id ? { ...item, status: novoStatus } : item
       )
     );
-
+    // Aqui
     // Integração futura com backend MongoDB (exemplo com axios):
     // axios.put(`http://localhost:3000/reembolsos/${id}`, { status: novoStatus })
     //   .then(response => console.log(response.data))
