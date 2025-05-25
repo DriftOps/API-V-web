@@ -1,0 +1,41 @@
+.resumo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.resumo-card {
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.resumo-card h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.resumo-card p {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #111;
+}
+
+.destaque {
+  border-left: 5px solid #f39c12;
+}
+
+.aprovado {
+  border-left: 5px solid #2ecc71;
+}
+
+.total {
+  border-left: 5px solid #3498db;
+}
+
+.funcionarios {
+  border-left: 5px solid #9b59b6;
+}

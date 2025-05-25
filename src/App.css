@@ -1,167 +1,21 @@
-/* App.css */
 
-body {
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f6f8;
-}
-
-.dashboard-container {
+.app {
   display: flex;
-  height: 100vh;
-  flex-direction: row;
+  min-height: 100vh;
+  background-color: #f5f5f5;
 }
 
-.sidebar {
-  background-color: #1e293b;
-  color: white;
-  padding: 20px;
-  width: 220px;
-  flex-shrink: 0;
-}
-
-.sidebar h2 {
-  font-size: 24px;
-  margin-bottom: 30px;
-}
-
-.sidebar ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.sidebar li {
-  margin: 20px 0;
-  cursor: pointer;
-  color: #cbd5e1;
-}
-
-.sidebar .active {
-  font-weight: bold;
-  color: #fff;
-}
-
-.main-content {
+.main {
   flex: 1;
-  padding: 30px;
-  overflow-x: auto;
-}
-
-.resumo-topo {
+  padding: 1rem;
   display: flex;
-  gap: 30px;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  flex-direction: column;
+  gap: 1rem;
+  overflow-x: hidden;
 }
 
-.card {
-  flex: 1 1 200px;
-  min-width: 150px;
-}
-
-.tabela-reembolsos h2 {
-  margin-bottom: 15px;
-}
-
-.tabela-reembolsos table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.tabela-reembolsos th,
-.tabela-reembolsos td {
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 1px solid #e2e8f0;
-  white-space: nowrap;
-}
-
-.tabela-reembolsos th {
-  background-color: #f1f5f9;
-}
-
-button {
-  margin-right: 8px;
-  padding: 6px 12px;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  color: white;
-  font-weight: 500;
-  margin-bottom: 5px;
-}
-
-button:disabled {
-  background-color: #cbd5e1;
-  cursor: not-allowed;
-}
-
-.aprovado {
-  color: green;
-  font-weight: bold;
-}
-
-.rejeitado {
-  color: red;
-  font-weight: bold;
-}
-
-.aguardando {
-  color: orange;
-  font-weight: bold;
-}
-
-button:nth-child(1):not(:disabled) {
-  background-color: #10b981;
-}
-
-button:nth-child(2):not(:disabled) {
-  background-color: #ef4444;
-}
-
-/* Responsivo para Android (telas < 768px) */
-@media (max-width: 768px) {
-  .dashboard-container {
-    flex-direction: column;
-  }
-
-  .sidebar {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    padding: 10px;
-  }
-
-  .sidebar h2 {
-    display: none;
-  }
-
-  .sidebar ul {
-    display: flex;
-    gap: 20px;
-  }
-
-  .sidebar li {
-    margin: 0;
-  }
-
-  .main-content {
-    padding: 15px;
-  }
-
-  .tabela-reembolsos table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 0.5rem;
   }
 }
