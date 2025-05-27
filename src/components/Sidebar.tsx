@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
-import { FaChartPie, FaMoneyCheckAlt, FaEnvelope, FaCog, FaSignOutAlt, FaBars } from 'react-icons/fa';
+import { FaChartPie, FaMoneyCheckAlt, FaBars } from 'react-icons/fa';
 
 const Sidebar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -12,11 +12,8 @@ const Sidebar: React.FC = () => {
           <FaBars />
         </div>
         <ul className="sidebar-menu">
-          <li><FaChartPie /> <span>Dashboard</span></li>
-          <li><FaMoneyCheckAlt /> <span>Aprovação de Reembolsos</span></li>
-          <li><FaEnvelope /> <span>Mensagens</span></li>
-          <li><FaCog /> <span>Configurações</span></li>
-          <li><FaSignOutAlt /> <span>Sair</span></li>
+          <a href='/dashboard'><li><FaChartPie /> <span>Dashboard</span></li></a>
+          <a href='/despesas'><li><FaMoneyCheckAlt /> <span>Aprovação de Reembolsos</span></li></a>
         </ul>
       </div>
     </>

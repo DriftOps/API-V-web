@@ -4,7 +4,6 @@ import './TabelaReembolsos.css';
 interface Reembolso {
   id: number;
   funcionario: string;
-  destino: string;
   transporte: number;
   geral: number;
   status: 'Aguardando' | 'Aprovado' | 'Rejeitado';
@@ -14,26 +13,23 @@ const TabelaReembolsos: React.FC = () => {
   const [reembolsos, setReembolsos] = useState<Reembolso[]>([
     {
       id: 1,
-      funcionario: 'João Silva',
-      destino: 'São Paulo',
-      transporte: 200,
-      geral: 150,
-      status: 'Aguardando',
-    },
-    {
-      id: 2,
-      funcionario: 'Maria Oliveira',
-      destino: 'Curitiba',
-      transporte: 300,
-      geral: 120,
+      funcionario: 'Luiz Henrique Souza Silva',
+      transporte: 66.60,
+      geral: 85.55,
       status: 'Aprovado',
     },
     {
+      id: 2,
+      funcionario: 'Luiz Henrique Souza Silva',
+      transporte: 55.80,
+      geral: 25.55,
+      status: 'Rejeitado',
+    },
+    {
       id: 3,
-      funcionario: 'Carlos Souza',
-      destino: 'Belo Horizonte',
+      funcionario: 'Luiz Henrique Souza Silva',
       transporte: 180,
-      geral: 100,
+      geral: 66.6,
       status: 'Rejeitado',
     },
   ]);
@@ -63,32 +59,20 @@ const TabelaReembolsos: React.FC = () => {
         <thead>
           <tr>
             <th>Funcionário</th>
-            <th>Cidade/Destino</th>
             <th>Transporte (R$)</th>
             <th>Geral (R$)</th>
             <th>Total</th>
             <th>Status</th>
-            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
           {reembolsos.map((r) => (
             <tr key={r.id}>
               <td>{r.funcionario}</td>
-              <td>{r.destino}</td>
               <td>{r.transporte.toFixed(2)}</td>
               <td>{r.geral.toFixed(2)}</td>
               <td>{(r.transporte + r.geral).toFixed(2)}</td>
               <td className={`status ${r.status.toLowerCase()}`}>{r.status}</td>
-              <td>
-                {r.status === 'Aguardando' && (
-                  <>
-                    <button onClick={() => aprovarReembolso(r.id)} className="btn-aprovar">Aprovar</button>
-                    <button onClick={() => rejeitarReembolso(r.id)} className="btn-rejeitar">Rejeitar</button>
-                  </>
-                )}
-                {r.status !== 'Aguardando' && <span>—</span>}
-              </td>
             </tr>
           ))}
         </tbody>

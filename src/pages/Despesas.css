@@ -1,0 +1,203 @@
+/* Layout geral */
+.dashboard {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f7fb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 30px;
+    background-color: #f5f7fb;
+  }
+  
+  /* Título */
+  .content h1 {
+    color: #00245D;
+    margin-bottom: 20px;
+  }
+  
+  /* Tabela */
+  .tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+  
+  .tabela th,
+  .tabela td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #e6e6e6;
+    text-align: left;
+  }
+  
+  .tabela th {
+    background-color: #00245D;
+    color: white;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .tabela tr:hover {
+    background-color: #f0f4f8;
+  }
+  
+  /* Lista de itens */
+  .tabela ul {
+    padding-left: 18px;
+    margin: 0;
+  }
+  
+  .tabela li {
+    color: #333;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  /* Status */
+  .tabela td:nth-child(5) {
+    font-weight: 600;
+    color: #555;
+  }
+  
+  /* Botões */
+  .btn-aprovar,
+  .btn-reprovar {
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+  }
+  
+  .btn-aprovar {
+    background-color: #447cff;
+  }
+  
+  .btn-reprovar {
+    background-color: #cc0000;
+  }
+  
+  .btn-aprovar:hover {
+    background-color: #447cff;
+    transform: scale(1.05);
+  }
+  
+  .btn-reprovar:hover {
+    background-color: #cc0000;
+    transform: scale(1.05);
+  }
+
+  .btn-detalhes {
+    background-color: #004aad;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    margin-left: 5px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-detalhes:hover {
+    background-color: #003580;
+  }
+  
+  /* Detalhes da solicitação */
+  .detalhes-container {
+    background-color: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+  }
+  
+  .detalhes-container h4 {
+    margin-top: 0;
+    color: #00245D;
+  }
+  
+  .detalhes-container ul {
+    padding-left: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .detalhes-container li {
+    margin-bottom: 6px;
+    color: #333;
+  }
+  
+  /* Galeria de imagens */
+  .imagens-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .downloads-container {
+    margin-top: 8px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  .download-button {
+    display: flex;
+    align-items: center;
+    background-color: #00245D;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .download-button:hover {
+    background-color: #001a45;
+  }
+  
+  .download-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  
+  
+  .imagens-container img {
+    width: 150px;
+    height: auto;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+  }
+  
+  .imagens-container img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .tabela th, .tabela td {
+      padding: 10px 12px;
+    }
+  
+    .btn-aprovar,
+    .btn-reprovar {
+      padding: 6px 10px;
+      font-size: 13px;
+    }
+  
+    .content {
+      padding: 20px;
+    }
+  }
+  
