@@ -12,7 +12,7 @@ const Sidebar: React.FC = () => {
           <FaBars />
         </div>
         <ul className="sidebar-menu">
-          <a href='/dashboard'><li><FaChartPie /> <span>Dashboard</span></li></a>
+          <a href='/'><li><FaChartPie /> <span>Dashboard</span></li></a>
           <a href='/despesas'><li><FaMoneyCheckAlt /> <span>Aprovação de Reembolsos</span></li></a>
         </ul>
       </div>

@@ -7,7 +7,7 @@ const Despesas: React.FC = () => {
 
   const buscarReembolsos = async () => {
     try {
-      const response = await fetch('http://192.168.0.104:3000/refunds', {
+      const response = await fetch('http://172.31.208.1:3000/refunds', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -18,24 +18,29 @@ const Despesas: React.FC = () => {
     }
   };
 
-  const atualizarStatus = async (id: string, status: string) => {
-    try {
-      const response = await fetch(`http://192.168.0.104:3000/refunds/${id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ status }),
-      });
+const atualizarStatus = async (id: string, status: string) => {
+  try {
+    const response = await fetch(`http://172.31.208.1:3000/refunds/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ status }),
+    });
 
-      if (response.ok) {
-        alert(`Reembolso ${status === 'aprovado' ? 'aprovado' : 'reprovado'} com sucesso!`);
-        buscarReembolsos();
-      } else {
-        alert('Erro ao atualizar status');
-      }
-    } catch (error) {
-      console.error('Erro ao atualizar status:', error);
+    const data = await response.json();
+
+    if (response.ok) {
+      alert(`Reembolso ${status === 'Aprovado' ? 'aprovado' : 'reprovado'} com sucesso!`);
+      buscarReembolsos();
+    } else {
+      alert(data.body.text || 'Erro ao atualizar status');
     }
-  };
+  } catch (error) {
+    console.error('Erro ao atualizar status:', error);
+    alert('Erro ao atualizar status');
+  }
+};
 
   const toggleDetalhes = (id: string) => {
     setDetalhesVisiveis((prev) => (prev === id ? null : id));
@@ -78,18 +83,12 @@ const Despesas: React.FC = () => {
                   <td>{r.usuario_nome}</td>
                   <td>{r.status || 'Pendente'}</td>
                   <td>
-                    <button
-                      onClick={() => atualizarStatus(r._id, 'aprovado')}
-                      className="btn-aprovar"
-                    >
-                      Aprovar
-                    </button>
-                    <button
-                      onClick={() => atualizarStatus(r._id, 'reprovado')}
-                      className="btn-reprovar"
-                    >
-                      Reprovar
-                    </button>
+                <button onClick={() => atualizarStatus(r._id, 'Aprovado')} className="btn-aprovar">
+                  Aprovar
+                </button>
+                <button onClick={() => atualizarStatus(r._id, 'Reprovado')} className="btn-reprovar">
+                  Reprovar
+                </button>
                     <button
                       onClick={() => toggleDetalhes(r._id)}
                       className="btn-detalhes"
