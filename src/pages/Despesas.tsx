@@ -7,7 +7,7 @@ const Despesas: React.FC = () => {
 
   const buscarReembolsos = async () => {
     try {
-      const response = await fetch('http://172.31.208.1:3000/refunds', {
+      const response = await fetch('http://localhost:3000/refunds', {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },
       });
@@ -20,7 +20,7 @@ const Despesas: React.FC = () => {
 
 const atualizarStatus = async (id: string, status: string) => {
   try {
-    const response = await fetch(`http://172.31.208.1:3000/refunds/${id}`, {
+    const response = await fetch(`http://localhost:3000/refunds/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
